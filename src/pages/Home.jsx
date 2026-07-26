@@ -1,18 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Award, 
-  ShieldCheck, 
-  Heart, 
-  Star, 
-  UtensilsCrossed, 
-  Clock, 
-  Calendar, 
-  ChevronRight, 
-  Quote, 
-  Sparkles,
-  PhoneCall
-} from 'lucide-react';
 
 // Données des plats vedettes
 const FEATURED_DISHP = [
@@ -103,7 +90,7 @@ export default function Home() {
               fontWeight: '600',
               marginBottom: '20px' 
             }}>
-              <Sparkles size={16} /> Haute Gastronomie Béninoise
+              <i className="bi bi-stars" style={{ fontSize: '16px' }}></i> Haute Gastronomie Béninoise
             </div>
 
             <h1 style={{ 
@@ -128,7 +115,7 @@ export default function Home() {
 
             <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '16px 32px', fontSize: '16px' }}>
-                <Calendar size={18} /> Réserver une Table
+                <i className="bi bi-calendar3" style={{ fontSize: '18px' }}></i> Réserver une Table
               </Link>
               <Link to="/menu" style={{ 
                 display: 'inline-flex', 
@@ -142,7 +129,7 @@ export default function Home() {
                 fontWeight: '600',
                 transition: 'all 0.3s ease'
               }}>
-                Explorer le Menu <ChevronRight size={18} />
+                Explorer le Menu <i className="bi bi-chevron-right" style={{ fontSize: '18px' }}></i>
               </Link>
             </div>
           </div>
@@ -158,7 +145,7 @@ export default function Home() {
           alignItems: 'center' 
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <Clock size={32} color="#dfb15b" />
+            <i className="bi bi-clock" style={{ fontSize: '32px', color: '#dfb15b' }}></i>
             <div>
               <h4 style={{ margin: 0, fontSize: '16px' }}>Heures d'ouverture</h4>
               <p style={{ margin: '4px 0 0', color: '#888', fontSize: '14px' }}>Mar - Dim : 12h00 - 23h00</p>
@@ -166,7 +153,7 @@ export default function Home() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <UtensilsCrossed size={32} color="#dfb15b" />
+            <i className="bi bi-egg-fried" style={{ fontSize: '32px', color: '#dfb15b' }}></i>
             <div>
               <h4 style={{ margin: 0, fontSize: '16px' }}>Cuisine Locale & Bio</h4>
               <p style={{ margin: '4px 0 0', color: '#888', fontSize: '14px' }}>100% Ingrédients du marché</p>
@@ -174,7 +161,7 @@ export default function Home() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <PhoneCall size={32} color="#dfb15b" />
+            <i className="bi bi-telephone-outbound" style={{ fontSize: '32px', color: '#dfb15b' }}></i>
             <div>
               <h4 style={{ margin: 0, fontSize: '16px' }}>Réservation directe</h4>
               <p style={{ margin: '4px 0 0', color: '#888', fontSize: '14px' }}>+229 01 00 00 00 00</p>
@@ -194,7 +181,7 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             <div style={{ backgroundColor: '#1a1a1a', padding: '40px 30px', borderRadius: '8px', border: '1px solid #2a2a2a', textAlign: 'center' }}>
               <div style={{ width: '70px', height: '70px', backgroundColor: 'rgba(223,177,91,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: '#dfb15b' }}>
-                <Award size={36} />
+                <i className="bi bi-award" style={{ fontSize: '36px' }}></i>
               </div>
               <h3 style={{ marginBottom: '15px' }}>Chef Passionné</h3>
               <p style={{ color: '#aaa', lineHeight: '1.6', margin: 0 }}>Formé auprès des meilleurs maîtres cuisiniers, notre chef marie créativité internationale et respect des traditions.</p>
@@ -202,7 +189,7 @@ export default function Home() {
 
             <div style={{ backgroundColor: '#1a1a1a', padding: '40px 30px', borderRadius: '8px', border: '1px solid #2a2a2a', textAlign: 'center' }}>
               <div style={{ width: '70px', height: '70px', backgroundColor: 'rgba(223,177,91,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: '#dfb15b' }}>
-                <ShieldCheck size={36} />
+                <i className="bi bi-shield-check" style={{ fontSize: '36px' }}></i>
               </div>
               <h3 style={{ marginBottom: '15px' }}>Produits Ultra-Frais</h3>
               <p style={{ color: '#aaa', lineHeight: '1.6', margin: 0 }}>Nous achetons nos épices, légumes et poissons chaque matin directement auprès des producteurs et pêcheurs locaux.</p>
@@ -210,7 +197,7 @@ export default function Home() {
 
             <div style={{ backgroundColor: '#1a1a1a', padding: '40px 30px', borderRadius: '8px', border: '1px solid #2a2a2a', textAlign: 'center' }}>
               <div style={{ width: '70px', height: '70px', backgroundColor: 'rgba(223,177,91,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: '#dfb15b' }}>
-                <Heart size={36} />
+                <i className="bi bi-heart-fill" style={{ fontSize: '36px' }}></i>
               </div>
               <h3 style={{ marginBottom: '15px' }}>Cadre Privilégié</h3>
               <p style={{ color: '#aaa', lineHeight: '1.6', margin: 0 }}>Un espace climatisé, une terrasse ombragée et une ambiance musicale feutrée pensée pour la sérénité de nos hôtes.</p>
@@ -313,7 +300,7 @@ export default function Home() {
                 Que ce soit pour un déjeuner d'affaires confidentiel ou un dîner romantique aux chandelles, chaque espace de notre établissement a été pensé pour vous procurer confort et dépaysement gustatif.
               </p>
               <Link to="/a-propos" style={{ color: '#dfb15b', fontWeight: 'bold', textDecoration: 'underline', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                En savoir plus sur notre histoire <ChevronRight size={16} />
+                En savoir plus sur notre histoire <i className="bi bi-chevron-right" style={{ fontSize: '16px' }}></i>
               </Link>
             </div>
           </div>
@@ -344,7 +331,7 @@ export default function Home() {
       {/* 7. TEMOIGNAGES CLIENTS */}
       <section style={{ padding: '90px 0', backgroundColor: '#161616' }}>
         <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-          <Quote size={48} color="#dfb15b" style={{ opacity: 0.5, marginBottom: '20px' }} />
+          <i className="bi bi-quote" style={{ fontSize: '48px', color: '#dfb15b', opacity: 0.5, marginBottom: '20px', display: 'inline-block' }}></i>
           
           <h2 style={{ color: '#dfb15b', fontSize: '14px', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '30px' }}>L'Avis de nos Hôtes</h2>
 
@@ -355,7 +342,7 @@ export default function Home() {
             
             <div style={{ display: 'flex', justifyContent: 'center', gap: '4px', marginBottom: '15px' }}>
               {[...Array(TESTIMONIALS[activeTestimonial].rating)].map((_, i) => (
-                <Star key={i} size={18} fill="#dfb15b" color="#dfb15b" />
+                <i key={i} className="bi bi-star-fill" style={{ fontSize: '18px', color: '#dfb15b' }}></i>
               ))}
             </div>
 

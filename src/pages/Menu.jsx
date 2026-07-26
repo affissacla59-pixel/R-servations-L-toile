@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Search, Flame, Leaf, Star, Sparkles, X, ChevronRight } from 'lucide-react';
 
 const MENU_DATA = [
   // ENTRESS
@@ -137,38 +136,70 @@ export default function Menu() {
   });
 
   return (
-    <div style={{ backgroundColor: '#0f0f0f', minHeight: '100vh', paddingBottom: '80px' }}>
-      
-      {/* 1. HERO SECTION MENU */}
-      <div style={{ 
+    <div style={{ backgroundColor: '#0f0f0f', minHeight: '100vh', overflowX: 'hidden' }}>
+
+      {/* 1. HERO SECTION MENU — même structure/comportement que Home et About (min-height 90vh, fond fixe/parallax au scroll) */}
+      <section style={{
         position: 'relative',
-        padding: '100px 20px 60px', 
+        minHeight: '90vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         textAlign: 'center',
-        background: 'linear-gradient(rgba(15,15,15,0.85), rgba(15,15,15,0.95)), url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80")',
+        background: 'linear-gradient(180deg, rgba(15,15,15,0.4) 0%, rgba(15,15,15,0.95) 100%), url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        borderBottom: '1px solid #222'
+        backgroundAttachment: 'fixed',
+        padding: '80px 20px'
       }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <span style={{ color: '#dfb15b', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '13px', fontWeight: 'bold' }}>
-            Expérience Gastronomique
-          </span>
-          <h1 style={{ fontSize: '42px', color: '#fff', margin: '15px 0', fontFamily: 'serif' }}>
-            Notre Carte & Créations
+        <div style={{ maxWidth: '750px', position: 'relative', zIndex: 2 }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '6px 16px',
+            backgroundColor: 'rgba(223, 177, 91, 0.15)',
+            border: '1px solid rgba(223, 177, 91, 0.4)',
+            borderRadius: '30px',
+            color: '#dfb15b',
+            fontSize: '14px',
+            fontWeight: '600',
+            marginBottom: '20px'
+          }}>
+            <i className="bi bi-stars" style={{ fontSize: '16px' }}></i> Expérience Gastronomique
+          </div>
+
+          <h1 style={{
+            fontSize: 'clamp(40px, 6vw, 68px)',
+            fontWeight: '800',
+            lineHeight: '1.1',
+            marginBottom: '24px',
+            letterSpacing: '-1px',
+            color: '#fff'
+          }}>
+            Notre <span style={{ color: '#dfb15b', fontStyle: 'italic' }}>Carte</span> & Créations
           </h1>
-          <p style={{ color: '#aaa', fontSize: '16px', lineHeight: '1.6' }}>
+
+          <p style={{
+            fontSize: '18px',
+            color: '#ccc',
+            lineHeight: '1.7',
+            marginBottom: '36px',
+            maxWidth: '620px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
             Chaque plat est une célébration des saveurs africaines revisitées avec précision, passion et des ingrédients locaux d'exception.
           </p>
 
           {/* BARRE DE RECHERCHE */}
-          <div style={{ 
-            marginTop: '35px', 
-            position: 'relative', 
-            maxWidth: '500px', 
-            margin: '35px auto 0' 
+          <div style={{
+            position: 'relative',
+            maxWidth: '500px',
+            margin: '0 auto'
           }}>
-            <Search style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#777' }} size={20} />
-            <input 
+            <i className="bi bi-search" style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#777', fontSize: '20px' }}></i>
+            <input
               type="text"
               placeholder="Rechercher un plat, un ingrédient..."
               value={searchQuery}
@@ -187,16 +218,16 @@ export default function Menu() {
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px 80px' }}>
         
         {/* 2. ONGLETS DE CATÉGORIES */}
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
           gap: '12px', 
-          margin: '40px 0 50px', 
+          margin: '60px 0 50px', 
           flexWrap: 'wrap' 
         }}>
           {[
@@ -291,12 +322,12 @@ export default function Menu() {
                   <div style={{ position: 'absolute', top: '15px', right: '15px', display: 'flex', gap: '6px' }}>
                     {item.isSpicy && (
                       <span title="Épicé" style={{ backgroundColor: 'rgba(239, 68, 68, 0.8)', padding: '6px', borderRadius: '50%', color: '#fff', display: 'flex' }}>
-                        <Flame size={14} />
+                        <i className="bi bi-fire" style={{ fontSize: '14px' }}></i>
                       </span>
                     )}
                     {item.isVeggie && (
                       <span title="Végétarien" style={{ backgroundColor: 'rgba(34, 197, 94, 0.8)', padding: '6px', borderRadius: '50%', color: '#fff', display: 'flex' }}>
-                        <Leaf size={14} />
+                        <i className="bi bi-leaf" style={{ fontSize: '14px' }}></i>
                       </span>
                     )}
                   </div>
@@ -310,7 +341,7 @@ export default function Menu() {
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#dfb15b', fontSize: '13px', marginBottom: '12px' }}>
-                      <Star size={14} fill="#dfb15b" />
+                      <i className="bi bi-star-fill" style={{ fontSize: '14px' }}></i>
                       <span>{item.rating}</span>
                     </div>
 
@@ -322,7 +353,7 @@ export default function Menu() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '15px', borderTop: '1px solid #222' }}>
                     <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#dfb15b' }}>{item.price}</span>
                     <span style={{ color: '#aaa', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      Détails <ChevronRight size={14} />
+                      Détails <i className="bi bi-chevron-right" style={{ fontSize: '14px' }}></i>
                     </span>
                   </div>
                 </div>
@@ -346,7 +377,7 @@ export default function Menu() {
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#dfb15b', marginBottom: '10px' }}>
-              <Sparkles size={20} />
+              <i className="bi bi-stars" style={{ fontSize: '20px' }}></i>
               <span style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '12px', letterSpacing: '1px' }}>Menu Dégustation</span>
             </div>
             <h2 style={{ color: '#fff', margin: '0 0 10px 0', fontSize: '28px' }}>Menu Prestige à 18 000 FCFA</h2>
@@ -399,7 +430,7 @@ export default function Menu() {
                 zIndex: 10
               }}
             >
-              <X size={20} />
+              <i className="bi bi-x-lg" style={{ fontSize: '20px' }}></i>
             </button>
 
             <img src={selectedItem.img} alt={selectedItem.name} style={{ width: '100%', height: '260px', objectFit: 'cover' }} />
